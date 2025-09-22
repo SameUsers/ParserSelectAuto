@@ -10,7 +10,9 @@ def connect():
         pika.ConnectionParameters(
             host='rabbitmq',
             port=5672,
-            credentials=credentials
+            credentials=credentials,
+            heartbeat=600,  # чтобы соединение не падало на простое
+            blocked_connection_timeout=300
         )
     )
     channel = connection.channel()

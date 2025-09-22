@@ -64,6 +64,7 @@ class CarDetail:
                         "v": "11.41.5",
                         }
         response = self.session.get(self.url, params =  self.params)
+        print(response.url)
         return response.json()
     
 
@@ -89,7 +90,6 @@ class CarDetail:
             "specid": json_data['result'].get("specid"),
         }
 
-        # Получаем spec параметры
         specid = data["specid"]
         if specid:
             url = f"https://cacheapigo.che168.com/CarProduct/GetParam.ashx?specid={specid}&callback=configTitle"
@@ -111,4 +111,4 @@ class CarDetail:
     
 if __name__ == '__main__':
     car = CarDetail()
-    car.get_car_detaile(56115935)
+    car.get_car_detaile(55638824)
